@@ -9,32 +9,32 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class EmployeeDAOHibernateImpl implements EmployeeDAO {
+public class EmployeeDAOHibernateImpl {
 
-    //define field for entityManager
-    private EntityManager entityManager;
-
-
-    // setup constructor injection
-    @Autowired
-    public EmployeeDAOHibernateImpl (EntityManager theEntityManager){
-        entityManager = theEntityManager;
-    }
-
-
-    @Override
-    @Transactional
-    public List<Employee> findAll() {
-        //get the current hibernate session
-        Session currentSession = entityManager.unwrap(Session.class);
-
-        //get a query
-        Query<Employee> theQuery =
-                currentSession.createQuery("from Employee", Employee.class);
-
-        //Execute query and get result list
-        List<Employee> employees = theQuery.getResultList();
-
-        return employees;
-    }
+//    //define field for entityManager
+//    private EntityManager entityManager;
+//
+//
+//    // setup constructor injection
+//    @Autowired
+//    public EmployeeDAOHibernateImpl (EntityManager theEntityManager){
+//        entityManager = theEntityManager;
+//    }
+//
+//
+//    @Override
+//    @Transactional
+//    public List<Employee> findAll() {
+//        //get the current hibernate session
+//        Session currentSession = entityManager.unwrap(Session.class);
+//
+//        //get a query
+//        Query<Employee> theQuery =
+//                currentSession.createQuery("from Employee", Employee.class);
+//
+//        //Execute query and get result list
+//        List<Employee> employees = theQuery.getResultList();
+//
+//        return employees;
+//    }
 }
